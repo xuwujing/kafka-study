@@ -15,7 +15,8 @@ import org.apache.kafka.common.serialization.StringDeserializer;
  * 
 * Title: KafkaConsumerTest
 * Description: 
-*  kafka消费者 demo
+* kafka消费者 demo
+* 手动提交测试
 * Version:1.0.0  
 * @author pancm
 * @date 2018年1月26日

@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>1.0.0</groupId>
-  <artifactId>kafka-example</artifactId>
+  <artifactId>kafka-consumerExample</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>kafka-example</name>
+  <name>kafka-consumerExample</name>
   <url>http://maven.apache.org</url>
 
   <properties>
