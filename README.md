@@ -4,6 +4,7 @@
 
 - [kafka-consumerExample](https://github.com/xuwujing/kafka/tree/master/kafka-consumerExample):kafka consumer 手动提交测试代码示例。
 
+- [kafka-storm](https://github.com/xuwujing/kafka/tree/master/kafka-storm):kafka整合 storm的工程示例。
 
 ## kafka 的相关文章
 

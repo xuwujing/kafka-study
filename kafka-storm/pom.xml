@@ -1,0 +1,126 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>1.0.0</groupId>
+  <artifactId>kafka-storm</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>kafka-storm</name>
+  <url>http://maven.apache.org</url>
+
+ <properties>
+     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.7</java.version>
+		<slf4j.version>1.7.25</slf4j.version>
+	    <logback.version>1.2.3</logback.version>
+	    <kafka.version>1.0.0</kafka.version>
+	    <storm.version>1.2.1</storm.version>
+	    <fastjson.version>1.2.41</fastjson.version>
+	</properties>
+
+  <dependencies>
+   <dependency>
+   	 <groupId>org.slf4j</groupId>
+   	 <artifactId>slf4j-api</artifactId>
+   	 <version>${slf4j.version}</version>
+	</dependency>
+    
+    
+    <dependency>
+    	<groupId>ch.qos.logback</groupId>
+    	<artifactId>logback-classic</artifactId>
+    	<version>${logback.version}</version>
+	</dependency>
+    
+    <dependency>
+    	<groupId>ch.qos.logback</groupId>
+    	<artifactId>logback-core</artifactId>
+    	<version>${logback.version}</version>
+	</dependency>
+	
+	
+	 <!-- kafka -->
+	<dependency>
+   	 	<groupId>org.apache.kafka</groupId>
+   		 <artifactId>kafka_2.12</artifactId>
+   		 <version>${kafka.version}</version>
+			 <exclusions>
+				<exclusion>
+					<groupId>org.apache.zookeeper</groupId>
+					<artifactId>zookeeper</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>provided</scope> 
+		</dependency>
+	
+	
+		<dependency>
+	   		 <groupId>org.apache.kafka</groupId>
+	   		 <artifactId>kafka-clients</artifactId>
+	  		  <version>${kafka.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.kafka</groupId>
+		    <artifactId>kafka-streams</artifactId>
+		    <version>${kafka.version}</version>
+		</dependency>
+		
+		
+		  <!--storm相关jar  -->
+   <dependency>
+    	<groupId>org.apache.storm</groupId>
+    	<artifactId>storm-core</artifactId>
+    	<version>${storm.version}</version>
+    	<!--排除相关依赖  -->
+    	<exclusions>
+      			<exclusion>
+  					<groupId>org.apache.logging.log4j</groupId>
+  					<artifactId>log4j-slf4j-impl</artifactId>
+      			</exclusion>
+      			<exclusion>
+      				<groupId>org.apache.logging.log4j</groupId>
+  					<artifactId>log4j-1.2-api</artifactId>
+      			</exclusion>
+      			<exclusion>
+      				<groupId>org.apache.logging.log4j</groupId>
+  					<artifactId>log4j-web</artifactId>
+      			</exclusion>
+      			<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+      			<exclusion>
+      				<artifactId>ring-cors</artifactId>
+      				<groupId>ring-cors</groupId>
+      			</exclusion>
+    	</exclusions>
+    	<scope>provided</scope>
+	</dependency> 
+	
+	<dependency>
+	    <groupId>org.apache.storm</groupId>
+	    	<artifactId>storm-kafka</artifactId>
+	    <version>${storm.version}</version>
+	</dependency>
+		
+		
+	 <!--fastjson 相关jar -->
+	<dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>fastjson</artifactId>
+		<version>${fastjson.version}</version>
+	</dependency>	
+    
+  </dependencies>
+</project>
