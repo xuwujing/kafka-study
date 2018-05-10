@@ -74,13 +74,18 @@ public class KafkaInsertDataSpout extends BaseRichSpout{
 						if (null == msg || "".equals(msg.trim())) {
 							continue;
 						}
-						list.add(JSON.parseObject(msg));
+						try{
+							list.add(JSON.parseObject(msg));
+						}catch(Exception e){
+							logger.error("数据格式不符!数据:{}",msg);
+							continue;
+						}
 						tmpOffset=record.offset();
 						if(maxOffset<tmpOffset){
 							maxOffset=tmpOffset;
 						 }
 				     } 
-					logger.info("写入的数据:"+list.get(0));
+					logger.info("写入的数据:"+list);
 					logger.info("消费的offset:"+maxOffset);
 				   this.collector.emit(new Values(JSON.toJSONString(list)));
 				   consumer.commitAsync();

@@ -40,6 +40,10 @@ public class TopologyApp {
 		// 设置1个Executeor(线程)，和两个task
 		builder.setBolt(Constants.INSERT_BOLT, new InsertBolt(), 1).setNumTasks(1).shuffleGrouping(Constants.KAFKA_SPOUT);
 		Config conf = new Config();
+		//设置一个应答者
+		conf.setNumAckers(1);
+		//设置一个work
+		conf.setNumWorkers(1);
 		try {
 			// 运行拓扑
 			// 有参数时，表示向集群提交作业，并把第一个参数当做topology名称
@@ -60,6 +64,7 @@ public class TopologyApp {
 			logger.error("storm启动失败!程序退出!",e);
 			System.exit(1);
 		}
+		//启动往kafka发送数据
 		sendMsg();
 		logger.info("storm启动成功...");
 	}

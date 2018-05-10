@@ -33,8 +33,8 @@ public class InsertBolt extends BaseRichBolt{
 		@Override
 		public void execute(Tuple tuple) {
 			String msg=tuple.getStringByField(Constants.FIELD);
-			//业务逻辑从处理...
-			logger.info("接受的消息:{}",msg);
+			//业务逻辑处理,这里就简单的打印一下
+			logger.info("接收的消息:{}",msg);
 		}
 
 		
