@@ -66,8 +66,6 @@ public class KafkaInsertDataSpout extends BaseRichSpout{
 				if (null != msgList && !msgList.isEmpty()) {
 					String msg = "";
 					List<JSONObject> list=new ArrayList<JSONObject>();
-					long tmpOffset=0;
-					long maxOffset=0;
 					for (ConsumerRecord<String, String> record : msgList) {
 						// 原始数据
 						msg = record.value();
@@ -80,13 +78,8 @@ public class KafkaInsertDataSpout extends BaseRichSpout{
 							logger.error("数据格式不符!数据:{}",msg);
 							continue;
 						}
-						tmpOffset=record.offset();
-						if(maxOffset<tmpOffset){
-							maxOffset=tmpOffset;
-						 }
 				     } 
-					logger.info("写入的数据:"+list);
-					logger.info("消费的offset:"+maxOffset);
+					logger.info("Spout发射的数据:"+list);
 				   this.collector.emit(new Values(JSON.toJSONString(list)));
 				   consumer.commitAsync();
 				}else{
