@@ -10,3 +10,4 @@
 
 -  [kafka demo](http://blog.csdn.net/qazwsxpcm/article/details/79186668)
 -  [kafka consumer](http://blog.csdn.net/qazwsxpcm/article/details/79293200)
+-  [kafka storm](http://www.panchengming.com/2018/05/10/pancm83/)
